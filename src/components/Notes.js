@@ -15,9 +15,9 @@ const Notes = (props) => {
         if (localStorage.getItem('token')) {
             getNotes();
         }
-        else{Navigate("/login");}
-        
-        
+        else { Navigate("/login"); }
+
+
         // eslint-disable-next-line
     }, []);
 
@@ -50,7 +50,7 @@ const Notes = (props) => {
         alignItems: 'center',
         padding: '20px',
         textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)'
-        
+
     };
 
     return (
@@ -61,32 +61,60 @@ const Notes = (props) => {
             </button>
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header">
+                    <div className="modal-content" style={{ backgroundColor: "#B7FFE4", color: "black" }}>
+                        <div className="modal-header" style={{ backgroundColor: "#B7FFE4", color: "black" }}>
                             <h5 className="modal-title" id="exampleModalLabel">
                                 Edit Note
                             </h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className="modal-body">
+                        <div className="modal-body" >
                             <form className="my-3">
+                                {/* <div className="mb-3">
+                                    <label htmlFor="title" className="form-label">
+                                        Title
+                                    </label>
+                                    <input type="text" style={{ height: "50px", border: "1px solid grey" }} className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} />
+                                </div> */}
+
+
                                 <div className="mb-3">
                                     <label htmlFor="title" className="form-label">
                                         Title
                                     </label>
-                                    <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} />
+                                    <textarea
+                                        style={{ height: "40px", border: "1px solid grey" }}
+                                        className="form-control"
+                                        id="etitle"
+                                        name="etitle"
+                                        value={note.etitle}
+                                        onChange={onChange}
+                                        minLength={5}
+                                    />
                                 </div>
+
+
                                 <div className="mb-3">
-                                    <label htmlFor="description" className="form-label">
+                                    <label htmlFor="edescription" className="form-label">
                                         Description
                                     </label>
-                                    <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} />
+                                    <textarea
+                                        style={{ height: "130px", border: "1px solid grey" }}
+                                        className="form-control"
+                                        id="edescription"
+                                        name="edescription"
+                                        value={note.edescription}
+                                        onChange={onChange}
+                                        minLength={5}
+                                        placeholder="Enter your description..."
+                                    />
                                 </div>
+
                                 <div className="mb-3">
                                     <label htmlFor="tag" className="form-label">
                                         Tag
                                     </label>
-                                    <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} minLength={5} />
+                                    <input type="text" style={{ border: "1px solid grey" }} className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} minLength={5} />
                                 </div>
                             </form>
                         </div>
@@ -94,7 +122,7 @@ const Notes = (props) => {
                             <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <button disabled={note.etitle.length < 5 || note.edescription.length < 5} onClick={handleClick} type="button" className="btn btn-primary">
+                            <button disabled={note.etitle.length < 5 || note.edescription.length < 5} style={{ backgroundColor: "black", color: "white", border: "black" }} onClick={handleClick} type="button" className="btn btn-primary">
                                 Update Note
                             </button>
                         </div>

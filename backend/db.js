@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const mongoURI = "mongodb://localhost:27017/noteme";
+const mongoURI = "mongodb+srv://amitpandhare100:amit777@cluster0.vkinjt7.mongodb.net/";
 
 const connectToMongo = ()=>{
     mongoose.connect(mongoURI, ()=>{
